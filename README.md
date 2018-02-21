@@ -6,5 +6,5 @@ The .scad-Files in this folder are the *originals*, the [STL](STL) folder contai
 
 # [Contributions welcome](http://contributionswelcome.org/)
 
-All contributions (no matter if small) are always welcome.
+All contributions (no matter how small) are always welcome.
 To see how you can help and where to start [see the Contributing file](CONTRIBUTING.md).
