@@ -5,7 +5,7 @@
 // [vitreous body]: https://en.wikipedia.org/wiki/Vitreous_body
 
 // Setup
-$fn=100;
+$fn=25;
 wallthickness=1;
 commonradius=11;
 
@@ -23,21 +23,20 @@ difference(){
 difference(){
     // E.g. some random hollow pins...
     intersection(){ // Pins only inside the outer cylinder, please
-        cylinder(r=commonradius, h=10);                    
-        for(i=[0:75]){ // make us 'i' pins at random locations
-            translate([rands(-commonradius,commonradius,1)[0], rands(-commonradius,commonradius,1)[0], 0])
-                difference(){
-                    cylinder(d=3, h=10);
-                    union(){
-                        cylinder(d=2, h=10);
-                        // Let's put a slit in the cylinders, so that we probably have fluid everywhere...
-                        rotate(rands(0,360,1)[0]) cube([5,1,10]);
-                        }
-                    }
+        cylinder(r=commonradius, h=10);
+        // Make us some (seeded) random variables
+        num_pins = 100;
+        rand_x=rands(-commonradius,commonradius,num_pins,42);
+        rand_y=rands(-commonradius,commonradius,num_pins,99);
+        rand_ang=rands(0,180,num_pins,1796);
+        for(i=[0:num_pins]){ // make us 'i' pins at random locations
+            translate([rand_x[i], rand_y[i], 0])
+                rotate(rand_ang[i]) 
+                    cube([4,1,10]);
                 }
             }
     // ...and a squashed sphere removed from them.<
     translate([0,0,10])
         scale([1,1,0.309])
         sphere(r=commonradius);
-    }
+    }    
