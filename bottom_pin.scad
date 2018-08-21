@@ -3,11 +3,11 @@
 // To do so, add a line with "use<bottom_pin.scad>"
 // And then just call "pin();" wherever you need the pin :)
 $fn=100;
-module pin(diameter=6.2, height=10, cap_depth=1)
+module pin(diameter=6.15, height=20, cap_depth=2)
 {
     translate([0,0,-height]) difference(){
         cylinder(d=diameter,h=height);
-        cylinder(d=diameter-1.5,h=height-cap_depth);
+        cylinder(d=diameter-2,h=height-cap_depth);
     }
 }
 pin();
