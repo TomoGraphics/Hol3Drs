@@ -1,3 +1,5 @@
+[![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
+
 # OpenSCAD models
 
 This repository is a collection of sample holder for our [uCT scanners](http://bruker-microct.com/products/all_products.htm) (1172 and 1272).
