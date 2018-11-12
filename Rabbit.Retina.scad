@@ -5,7 +5,7 @@
 // [vitreous body]: https://en.wikipedia.org/wiki/Vitreous_body
 
 // Setup
-$fn=25;
+$fn=100;
 wallthickness=1;
 commonradius=11;
 
