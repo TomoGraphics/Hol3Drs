@@ -1,3 +1,4 @@
+[![DOI](https://zenodo.org/badge/122615545.svg)](https://zenodo.org/badge/latestdoi/122615545)
 [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](http://makeapullrequest.com)
 
 # OpenSCAD models
