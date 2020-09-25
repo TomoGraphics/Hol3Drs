@@ -45,6 +45,6 @@ module fishholder(cylinder_height,
                 }
             }
 
-samplechanger(70, 20.5, 13, pin_height=1.5);            
-translate([25,0,0]) fishholder(70, 20.5, 13, pin_height=1.5);
+samplechanger(65, 20.5, 13, pin_height=1.5);            
+translate([25,0,0]) fishholder(65, 20.5, 13, pin_height=1.5);
             
