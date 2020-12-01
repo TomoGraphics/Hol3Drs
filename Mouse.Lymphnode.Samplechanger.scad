@@ -1,13 +1,13 @@
 $fn=50;
 
 module sampleholder(height=10,
-                    upper_radius=3,
+                    upper_radius=3.5,
                     lower_radius=1,
                     wall_thickness=0.3,
                     pin_height=2,
                     ) {
     // Bottom; connector to sample holder
-    cylinder(d=3.95, h=pin_height); 
+    cylinder(d=8.4, h=pin_height); 
     // Cup
     translate([0,0,pin_height])
             difference() {
@@ -20,7 +20,6 @@ module sampleholder(height=10,
                          r2=upper_radius);
                 }
         }
-
 
 for (i = [-1:2]){
     for (k = [-1:2]){
