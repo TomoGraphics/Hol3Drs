@@ -10,10 +10,10 @@ module fishholder(cylinder_height,
         union() { // Collect the bottom pin and the cylinder
             pin(height=20);
             scale([1, ellipse_diameter2/ellipse_diameter1, 1]) { // squash the tube
-                cylinder(d=ellipse_diameter1+wall_thickness,h=cylinder_height);
+                cylinder(d=ellipse_diameter1+2*wall_thickness,h=cylinder_height);
                 }
                 }
-                translate([0,0,wall_thickness]) {  // Move the drilling sphere and cylinder up
+                translate([0,0,wall_thickness * 2]) {
                     scale([1, ellipse_diameter2/ellipse_diameter1, 1]) { // squash the tube
                     #cylinder(d=ellipse_diameter1, h=cylinder_height+1);
                         }
@@ -21,9 +21,10 @@ module fishholder(cylinder_height,
                 }
             }
 
-fishholder(100, 40, 30);
-translate([0,30,0]) fishholder(100, 40, 25);
-rotate([0,0,90]) translate([10,40,0]) fishholder(120, 60, 30);
+fishholder(85, 35, 20);
+translate([0,-40,0]) fishholder(100, 40, 30);
+translate([0,40,0]) fishholder(100, 40, 25);
+rotate([0,0,90]) translate([10,40,0]) fishholder(120, 60, 30, wall_thickness=3);
 
 
             
