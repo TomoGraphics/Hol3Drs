@@ -21,5 +21,5 @@ module fishholder(cylinder_height,
                 }
             }
 
-fishholder(170, 60, 40, wall_thickness=2);
-translate([0,45,0]) fishholder(140, 50, 30, wall_thickness=2);
+fishholder(120, 40, 25, wall_thickness=1.5);
+//translate([0,45,0]) fishholder(140, 50, 30, wall_thickness=2);
