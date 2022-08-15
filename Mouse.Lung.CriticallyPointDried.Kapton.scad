@@ -13,14 +13,14 @@ module connector(cylinder_height,
         translate([0,0,wall_thickness]) union(){
             #translate([0,0,wall_thickness]) cylinder(d=diameter, h=cylinder_height+1);
             // write diameter into it
-            #linear_extrude(wall_thickness) {
+            #linear_extrude(2*wall_thickness) {
     text(str(round(diameter*10)/10), size = diameter/3, halign = "center", valign = "center");
 }               }             
                 }
             }
 
 for ( angle = [1:60:360]){
-    diameter = 10 + angle/250 -0.5;
+    diameter = 10 + angle/300 - 0.2;
     echo(diameter);
     rotate(angle,[0,0,1]){
         translate([15,0,0]) connector(5, diameter);
