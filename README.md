@@ -3,7 +3,7 @@
 
 # OpenSCAD models
 
-This repository is a collection of sample holder for our [uCT scanners](http://bruker-microct.com/products/all_products.htm) (1172 and 1272).
+This repository is a collection of sample holder for our [uCT scanners](http://bruker-microct.com/products/all_products.htm) (Bruker SykScan 1172, 1272 and 2214).
 
 Models are generated/written in [OpenSCAD](http://www.openscad.org/).
 The .scad-Files in this folder are the *originals*.
