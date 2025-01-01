@@ -1,5 +1,4 @@
 $fn=100;
-bottom_pin_diameter = 6.2;
 
 module sampleholder(cylinder_height,
                     cylinder_diameter_bottom,
@@ -47,6 +46,7 @@ module cover(cylinder_diameter_top, squash=0.5, wall_thickness=1.5, lid_height=3
     }
     
 top_diameter=15;
+bottom_pin_diameter = 6.2;
 squash=0.618;
-sampleholder(20, 6.2, top_diameter, squash);
+sampleholder(20, bottom_pin_diameter, top_diameter, squash);
 translate([0,0,45]) cover(top_diameter, squash);
