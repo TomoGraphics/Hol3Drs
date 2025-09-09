@@ -3,9 +3,9 @@ $fn = 100; // smoothness
 use <bottom_pin.scad>
           
 // Parameters
-frame_x = 12;
-frame_y = 4;
-frame_z = 12;
+frame_x = 8;
+frame_y = 1.5;
+frame_z = 8;
 frame_width = 2;
 
 module full_model() {
@@ -17,38 +17,36 @@ module full_model() {
             cube([frame_x-frame_width, frame_y+1, frame_z-frame_width], center=true);
         }
         // "Real" pin at the bottom
-        pin();
+        translate ([0, 0, -20]) cylinder(d=6.2, h=20);
+
         // small holder pin at the top
-        translate ([0, 0, frame_z + 5]) pin(height=5);
+        translate ([0, 0, frame_z]) cylinder(d=6.2,h=10);
     }
 }
 
-// Split vertical front
-module front_half() {
-    intersection() {
-        full_model();
-        translate([0, -100, 0])
-            #cube([200, 200, 200], center=true); // Front half
+// split via duplication
+
+translate([15,0,0]) {
+difference() {
+    full_model();
+    union(){
+        // cutting face
+        translate([-frame_x, 0, -30])#cube([2*frame_x, 10, 60]);
+        // peg
+        translate([0, 0, -7]) rotate([0, 0, 0]) #cube([2, 25, 5], center=true);
+        translate([0, 0, 13]) rotate([0, 0, 0]) #cube([2, 25, 5], center=true);
     }
 }
-
-// Split vertical back
-module back_half() {
-    intersection() {
-        full_model();
-        translate([0, 100, 0])
-            #cube([200, 200, 200], center=true); // Front half
-    }
 }
 
-front_half();
-back_half();
-
-// Exploded view
-explode_offset = 5;  // How far to pull parts apart
-
-translate([25, -explode_offset, 0])
-    front_half();
-
-translate([25, explode_offset, 0])
-    back_half();
+slack=0.5;
+difference() {
+    full_model();
+    difference(){
+        // cutting face
+        translate([-frame_x, -10, -30])#cube([2*frame_x, 10, 60]);
+        // peg
+        translate([0, 0, -7]) rotate([0, 0, 0]) #cube([2-slack, 25-slack, 5-slack], center=true);
+        translate([0, 0, 13]) rotate([0, 0, 0]) #cube([2-slack, 25-slack, 5-slack], center=true);
+    }
+}
