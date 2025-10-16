@@ -1,8 +1,8 @@
-$fn = 100;
+$fn = 25;
 
 use <bottom_pin.scad>
 
-wall_thickness=2;
+wall_thickness=1.5;
 fish_dorsoventral=35;
 fish_lateral=22;
 fish_anterioposterior=100;
@@ -27,7 +27,7 @@ module sticklebackholder(label="lbl") {
 
 // Bottom pin
 pin(height=25);
-cylinder(d=fish_dorsoventral, h=wall_thickness);
+cylinder(d=fish_dorsoventral * 1.25, h=wall_thickness);
 
 num_holders = 3;
 
