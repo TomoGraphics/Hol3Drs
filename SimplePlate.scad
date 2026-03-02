@@ -1,18 +1,27 @@
-// Some simple plates with an increasing diameter
+// Some simple plates, efficiently packed
 $fn = 50;
 
 plate_thickness = 3;
 sphere_r = 6.3;
-diameters = [20, 30, 40, 50, 60, 70]; 
+diameters = [20, 30, 40, 50]; 
+
+// maximize packing
+num_plates = len(diameters);
+columns = ceil(sqrt(num_plates)); // Rounds up to the nearest whole column
+spacing = max(diameters) + 1;
 
 use <bottom_pin.scad>
 
-// Use a range-based loop to get an index (j)
 for (i = [0 : len(diameters) - 1]) {
     d = diameters[i];
-    translate([i * d * 0.618, i * d * 0.618, 0]) {     
+
+    col = i % columns; 
+    row = floor(i / columns); 
+
+    translate([col * spacing, row * spacing, 0]) {
         pin(height=30);
         cylinder(d=d, h=plate_thickness); 
+
         difference() { 
             sphere(r=sphere_r); 
             translate([-sphere_r, -sphere_r, plate_thickness])
